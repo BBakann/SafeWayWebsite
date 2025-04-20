@@ -7,19 +7,19 @@ import Home from './pages/Home/Home';
 import Features from './pages/Features/Features';
 import Pricing from './pages/Pricing/Pricing';
 import About from './pages/About/About';
+import Trial from './pages/Trial/Trial';
 
 function App() {
   return (
     <div className="app">
       <Header />
-      <main className="main-content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/features" element={<Features />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/features" element={<Features />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/trial" element={<Trial />} />
+      </Routes>
       <Footer />
     </div>
   );

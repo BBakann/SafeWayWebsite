@@ -1,7 +1,23 @@
 .footer {
-  background-color: #1a1a1a;
-  color: #ffffff;
-  padding: 4rem 0 2rem;
+  background-color: #2A4858; /* Koyu mavi-gri tonu, primary rengimizle uyumlu */
+  color: var(--text-light);
+  padding: 3rem 0 1.5rem; /* Padding'i azalttık */
+  position: relative;
+}
+
+/* Gradient üst çizgi */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    var(--color-primary) 0%, 
+    var(--color-secondary) 100%
+  );
+  opacity: 0.8;
 }
 
 .footer-container {
@@ -9,20 +25,30 @@
   margin: 0 auto;
   padding: 0 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: 2fr 1fr 1fr 1fr; /* Logo alanı için daha fazla alan */
+  gap: 2rem; /* Gap'i azalttık */
 }
 
 .footer-section h3 {
-  font-size: 1.5rem;
+  font-size: 1.3rem; /* Font boyutunu azalttık */
   margin-bottom: 1rem;
-  color: #007AFF;
+  color: var(--color-primary-light);
+  font-weight: 600;
 }
 
 .footer-section h4 {
-  font-size: 1.2rem;
+  font-size: 1.1rem; /* Font boyutunu azalttık */
+  margin-bottom: 0.8rem;
+  color: var(--color-secondary);
+  font-weight: 500;
+}
+
+.footer-section p {
+  color: var(--text-light);
+  opacity: 0.8;
+  line-height: 1.6;
   margin-bottom: 1rem;
-  color: #ffffff;
+  font-size: 0.9rem; /* Font boyutunu azalttık */
 }
 
 .footer-section ul {
@@ -31,17 +57,22 @@
 }
 
 .footer-section ul li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem; /* Margin'i azalttık */
 }
 
 .footer-section ul li a {
-  color: #ffffff;
+  color: var(--text-light);
   text-decoration: none;
-  transition: color 0.3s ease;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  display: inline-block;
+  font-size: 0.9rem; /* Font boyutunu azalttık */
 }
 
 .footer-section ul li a:hover {
-  color: #007AFF;
+  color: var(--color-secondary);
+  opacity: 1;
+  transform: translateX(3px);
 }
 
 .social-links {
@@ -50,17 +81,70 @@
   margin-top: 1rem;
 }
 
+.social-links a {
+  color: var(--text-light);
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 36px; /* Biraz daha büyük */
+  height: 36px; /* Biraz daha büyük */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-links a i {
+  font-size: 1rem; /* İkon boyutunu ayarla */
+}
+
+.social-links a:hover {
+  background-color: var(--color-primary);
+  color: var(--text-light);
+  transform: translateY(-2px);
+}
+
+/* Her sosyal medya ikonu için özel hover renkleri */
+.social-links a:hover .fa-x-twitter {
+  color: #ffffff;
+}
+
+.social-links a:hover .fa-linkedin-in {
+  color: #ffffff;
+}
+
+.social-links a:hover .fa-instagram {
+  color: #ffffff;
+}
+
 .footer-bottom {
   max-width: 1200px;
-  margin: 2rem auto 0;
-  padding: 2rem 2rem 0;
+  margin: 2rem auto 0; /* Margin'i azalttık */
+  padding: 1rem 2rem 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
 }
 
+.footer-bottom p {
+  color: var(--text-light);
+  opacity: 0.7;
+  font-size: 0.85rem; /* Font boyutunu azalttık */
+}
+
+@media (max-width: 992px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .footer {
+    padding: 2rem 0 1rem;
+  }
+
   .footer-container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .footer-section {
@@ -69,5 +153,9 @@
 
   .social-links {
     justify-content: center;
+  }
+
+  .footer-section ul li a:hover {
+    transform: none;
   }
 } 
